@@ -3,16 +3,28 @@
 <nav class="container d-flex justify-content-between align-items-center py-3 flex-wrap">
     <div><a href="/"><i class="fa fa-home" aria-hidden="true"></i> Home</div></a>
     <div class="row">
-        <div>
-            <a class="btn btn-primary" href="/login"><i class="fa fa-sign-in" aria-hidden="true"></i> Login</a> 
-            <a class="btn btn-primary" href="/create_account"> 
-                <i class="fa fa-user" aria-hidden="true"></i> 
-                <i class="fa fa-plus" aria-hidden="true"></i> 
-                Create Account</a>
-        </div>
-        <div>
-            <a class="btn btn-primary" href="/dashboard"> <i class="fa fa-user" aria-hidden="true"></i> Dashboard </a>
-        </div>
 
+        <% if (typeof isLogin === 'undefined') { %>
+
+            <div>
+                <a class="btn btn-primary" href="/login"><i class="fa fa-sign-in" aria-hidden="true"></i> Login</a> 
+                <a class="btn btn-primary" href="/create_account"> 
+                    <i class="fa fa-user" aria-hidden="true"></i> 
+                    <i class="fa fa-plus" aria-hidden="true"></i> 
+                    Create Account</a>
+            </div>
+
+        <% } else { %>
+
+            <div>
+                <a class="btn btn-primary" href="/dashboard"> <i class="fa fa-user" aria-hidden="true"></i> Dashboard </a>
+                <a href="/logout">
+                    <i class="fa fa-sign-out" aria-hidden="true"></i>
+                    Logout
+                </a>
+            </div>
+
+        <% } %>
+         
     </div>
 </nav>

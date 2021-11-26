@@ -2,9 +2,21 @@
     <main>
 
         <div class="container pt-3">
+          
+           <h2>Login</h2>
 
-            <form action="" class="pt-3">
-                <h2>Login</h2>
+            <% if (typeof error !== "undefined") { %>
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        <span class="sr-only">Close</span>
+                    </button>
+                    <strong>Error!</strong> 
+                    <%= error %> 
+                </div>
+            <% } %>
+
+            <form action="/login" method="POST" class="pt-3">
                 <div class="form-group">
                     <label for="">Email</label>
                     <input type="text" name="email" class="form-control" placeholder="Enter email address...">
