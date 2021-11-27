@@ -32,13 +32,13 @@ router.get('/test', (req, res) => {
     return res.render('test')
 })
 
-router.post('/test-upload', async (req, res) => {
+// router.post('/test-upload', async (req, res) => {
 
-   const result = await handleFileUpload(req.files.image)
+//    const result = await handleFileUpload(req.files.image)
 
-    //    const url = result.url
+//     //    const url = result.url
 
-})
+// })
 
 // Dashboard routes PROTECTED
 
@@ -56,7 +56,7 @@ router.get('/dashboard', async(req, res) => {
         user_id
     })
 
-    console.log(driverLicense, vehicleRegistration);
+    // console.log(driverLicense, vehicleRegistration);
 
     res.render('dashboard/dashboard', {
         driverInfo: driverLicense,
