@@ -2,6 +2,8 @@ import { Router } from "express"
 import { createAccount, login, logout } from "../controllers/authController.js"
 import { driverLicenseRegistration, vehicleRegistration } from "../controllers/registrationController.js"
 import authUser from "../middleware/authUser.js"
+import driverLicenseModel from "../models/driverLicenseModel.js"
+import vehicleRegistrationModel from "../models/vehicleRegistrationModel.js"
 import handleFileUpload from "../utils/handleFileUpload.js"
 
 
@@ -34,7 +36,7 @@ router.post('/test-upload', async (req, res) => {
 
    const result = await handleFileUpload(req.files.image)
 
-   const url = result.url
+    //    const url = result.url
 
 })
 
@@ -42,8 +44,24 @@ router.post('/test-upload', async (req, res) => {
 
 router.use(authUser)
 
-router.get('/dashboard', (req, res) => {
-    res.render('dashboard/dashboard')
+router.get('/dashboard', async(req, res) => {
+
+    const user_id = req.user.id
+
+    const driverLicense = await driverLicenseModel.findOne({
+        user_id
+    })
+
+    const vehicleRegistration = await vehicleRegistrationModel.findOne({
+        user_id
+    })
+
+    console.log(driverLicense, vehicleRegistration);
+
+    res.render('dashboard/dashboard', {
+        driverInfo: driverLicense,
+        vehicleInfo: vehicleRegistration
+    })
 })
 
 router.route('/dashboard/vehicle_reg')
@@ -58,6 +76,27 @@ router.route('/dashboard/driver_reg')
         res.render('dashboard/driverLicenseReqistration')
     })
     .post(driverLicenseRegistration)
+
+
+router.get('/delete/vehicle/:id', async (req, res) => {
+
+    const id = req.params.id
+
+    await vehicleRegistrationModel.findByIdAndDelete(id)
+
+    res.redirect('/dashboard')
+
+})
+
+router.get('/delete/driver/:id', async (req, res) => {
+
+    const id = req.params.id
+
+    await driverLicenseModel.findByIdAndDelete(id)
+
+    res.redirect('/dashboard')
+
+})
 
 router.get('/logout', logout)
 

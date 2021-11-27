@@ -26,7 +26,7 @@ export const createAccount = async (req, res) => {
 
    if(newUser) {
      console.log(res.session)
-     return res.render('dashboard/dashboard')
+     return res.redirect('/dashboard')
    }
 
 }

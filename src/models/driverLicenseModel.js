@@ -14,6 +14,10 @@ const driverLicenseSchema = new mongoose.Schema({
         type: Date
     },
 
+    blood_group: {
+        type: String
+    },
+
     state: {
         type: String
     },

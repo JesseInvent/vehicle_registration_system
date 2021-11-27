@@ -26,6 +26,10 @@ const vehicleRegistrationSchema = new mongoose.Schema({
         type: String
     },
 
+    proof_of_ownership: {
+        type: String
+    },
+
     vehicle_image: {
         type: String
     },

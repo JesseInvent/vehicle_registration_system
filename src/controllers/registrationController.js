@@ -41,7 +41,6 @@ export const driverLicenseRegistration = async (req, res) => {
     } catch (error) {
         console.log(error);
     }
-
     
 }
 
@@ -57,6 +56,8 @@ export const vehicleRegistration = async (req, res) => {
 
     const insurance_papers = await handleFileUpload(req.files.insurance_papers)
 
+    const proof_of_ownership =  await handleFileUpload(req.files.proof_of_ownership)
+
     const vehicle_image = await handleFileUpload(req.files.vehicle_image)
 
     await vehicleRegistrationModel.create({
@@ -69,6 +70,7 @@ export const vehicleRegistration = async (req, res) => {
         custom_papers,
         identification,
         insurance_papers,
+        proof_of_ownership,
         vehicle_image
     })
 

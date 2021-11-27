@@ -19,55 +19,70 @@
 
                 <div class="d-flex flex-wrap flex-column">
 
-                    <div class="p-2 mb-3 border-bottom">
-                       <h6 class="font-weight-bold"> Full Name </h6>
-                    </div>
+                    <% if (vehicleInfo) { %>
 
-                    <div class="p-2 mb-3 border-bottom">
-                       <h6 class="font-weight-bold"> Passport </h6>
-                       <img src="/images/reg1.jpeg" width="400" height="300" alt="" loading="lazy">
-                    </div>
+                        <div class="p-2 mb-3 border-bottom">
+                            <h6 class="font-weight-bold"> Full Name </h6>
+                            <%- vehicleInfo.full_name %> 
+                        </div>
+    
+                        <div class="p-2 mb-3 border-bottom">
+                            <h6 class="font-weight-bold"> Passport </h6>
+                            <img src="<%- vehicleInfo.passport %>" width="400" height="300" alt="" loading="lazy">
+                        </div>
+        
+                        <div class="p-2 mb-3 border-bottom">
+                            <h6 class="font-weight-bold"> Means of identification </h6>
+                            <img src="<%- vehicleInfo.identification %>" width="400" height="300" alt="" loading="lazy">
+                        </div>
+    
+                        <div class="p-2 mb-3 border-bottom">
+                            <h6 class="font-weight-bold">Custom papers</h6>
+                            <img src="<%- vehicleInfo.custom_papers %>" width="400" height="300" alt="" loading="lazy">
+                        </div>
+    
+                        <div class="p-2 mb-3 border-bottom">
+                            <h6 class="font-weight-bold">Insurance Papers</h6>
+                            <img src="<%- vehicleInfo.insurance_papers %>" width="400" height="300" alt="" loading="lazy">
+                        </div>
 
-                    <div class="p-2 mb-3 border-bottom">
-                       <h6 class="font-weight-bold"> Proof Of ownership </h6>
-                       <img src="https://res.cloudinary.com/daewfkfzs/image/upload/v1637925543/vehicle_reg/weve24lj9fpcbq3zvnpy.jpg" width="400" height="300" alt="" loading="lazy">
-                    </div>
+                        <div class="p-2 mb-3 border-bottom">
+                            <h6 class="font-weight-bold">Proof of ownership</h6>
+                            <img src="<%- vehicleInfo.proof_of_ownership %>" width="400" height="300" alt="" loading="lazy">
+                        </div>                        
+                        
+                        <div class="p-2 mb-3 border-bottom">
+                            <h6 class="font-weight-bold">Vehicle Image</h6>
+                            <img src="<%- vehicleInfo.vehicle_image %>" width="400" height="300" alt="" loading="lazy">
+                        </div>
+    
+                        <div class="p-2 mb-3 border-bottom">
+                            <h6 class="font-weight-bold">Engine Number</h6>
+                            <%- vehicleInfo.engine_number %>
+                        </div>
+    
+                        <div class="p-2 mb-3 border-bottom">
+                            <h6 class="font-weight-bold">State</h6>
+                            <%- vehicleInfo.state %>
+                        </div>
+    
+                        <div class="p-2 mb-3 border-bottom">
+                            <h6 class="font-weight-bold">LGA</h6>
+                            <%- vehicleInfo.lga %>
+                        </div>
+    
+                        <div class="p-2 mb-3 border-bottom">
+                            <h6 class="font-weight-bold">Age</h6>
+                            <%- vehicleInfo.age %>
+                        </div>
 
-                    <div class="p-2 mb-3 border-bottom">
-                       <h6 class="font-weight-bold"> Means of identification </h6>
-                       <img src="/images/reg3.jpeg" width="400" height="300" alt="" loading="lazy">
-                    </div>
+                        <a href="/delete/vehicle/<%- vehicleInfo.id %>" class="btn btn-danger">Delete <i class="fa fa-trash" aria-hidden="true"></i></a>
 
-                    <div class="p-2 mb-3 border-bottom">
-                        <h6 class="font-weight-bold">Custom papers</h6>
-                        <img src="/images/reg4.jpeg" width="400" height="300" alt="" loading="lazy">
-                    </div>
+                    <% } else { %>
+                     
+                        <h6>Not supplied...</h6>
 
-                    <div class="p-2 mb-3 border-bottom">
-                        <h6 class="font-weight-bold">Insurance Papers</h6>
-                        <img src="/images/reg5.jpeg" width="400" height="300" alt="" loading="lazy">
-                    </div>
-
-                    <div class="p-2 mb-3 border-bottom">
-                        <h6 class="font-weight-bold">Vehicle Image</h6>
-                        <img src="/images/reg6.jpeg" width="400" height="300" alt="" loading="lazy">
-                    </div>
-
-                    <div class="p-2 mb-3 border-bottom">
-                        <h6 class="font-weight-bold">Engine Number</h6>
-                    </div>
-
-                    <div class="p-2 mb-3 border-bottom">
-                        <h6 class="font-weight-bold">State</h6>
-                    </div>
-
-                    <div class="p-2 mb-3 border-bottom">
-                        <h6 class="font-weight-bold">LGA</h6>
-                    </div>
-
-                    <div class="p-2 mb-3 border-bottom">
-                        <h6 class="font-weight-bold">Age</h6>
-                    </div>
+                    <% } %>
 
                 </div>
             </div>
@@ -77,42 +92,60 @@
 
                 <div class="d-flex flex-wrap flex-column">
 
-                    <div class="p-2 mb-3 border-bottom">
-                        <h6 class="font-weight-bold">Full Name</h6>
-                    </div>
+                    <% if (driverInfo) { %>
+                     
+                        <div class="p-2 mb-3 border-bottom">
+                            <h6 class="font-weight-bold">Full Name</h6>
+                            <%- driverInfo.full_name %> 
+                        </div>
+    
+                        <div class="p-2 mb-3 border-bottom">
+                            <h6 class="font-weight-bold">Driver License Document</h6>
+                            <img src="<%- driverInfo.driver_license_doc %>" width="400" height="300" alt="" loading="lazy">
+                        </div>
+    
+                        <div class="p-2 mb-3 border-bottom">
+                            <h6 class="font-weight-bold">State of Origin</h6>
+                            <%- driverInfo.state %> 
+                        </div>
+    
+                        <div class="p-2 mb-3 border-bottom">
+                            <h6 class="font-weight-bold">LGA of origin</h6>
+                            <%- driverInfo.lga %> 
+                        </div>
+    
+                        <div class="p-2 mb-3 border-bottom">
+                            <h6 class="font-weight-bold">Date Issued</h6>
+                            <%- driverInfo.issue_date %> 
+                        </div>
+    
+                        <div class="p-2 mb-3 border-bottom">
+                            <h6 class="font-weight-bold">Exipiry Date</h6>
+                            <%- driverInfo.expiry_date %> 
+                        </div>
+    
+                        <div class="p-2 mb-3 border-bottom">
+                            <h6 class="font-weight-bold">Date of Birth</h6>
+                            <%- driverInfo.date_of_birth %> 
+                        </div>
+    
+                        <div class="p-2 mb-3 border-bottom">
+                            <h6 class="font-weight-bold">Blood Group</h6>
+                            <%- driverInfo.blood_group %> 
+                        </div>
+    
+                        <div class="p-2 mb-3 border-bottom">
+                            <h6 class="font-weight-bold">Vehicle Category</h6>
+                            <%- driverInfo.vehicle_category %> 
+                        </div>
 
-                    <div class="p-2 mb-3 border-bottom">
-                        <h6 class="font-weight-bold">Driver License Document</h6>
-                        <img src="/images/reg7.jpeg" width="400" height="300" alt="" loading="lazy">
-                    </div>
+                        <a href="/delete/driver/<%- driverInfo.id %>" class="btn btn-danger">Delete <i class="fa fa-trash" aria-hidden="true"></i></a>
 
-                    <div class="p-2 mb-3 border-bottom">
-                        <h6 class="font-weight-bold">State of Origin</h6>
-                    </div>
+                    <% } else { %>
 
-                    <div class="p-2 mb-3 border-bottom">
-                        <h6 class="font-weight-bold">LGA of origin</h6>
-                    </div>
+                        <h6>Not supplied...</h6>
 
-                    <div class="p-2 mb-3 border-bottom">
-                        <h6 class="font-weight-bold">Date Issued</h6>
-                    </div>
-
-                    <div class="p-2 mb-3 border-bottom">
-                        <h6 class="font-weight-bold">Exipiry Date</h6>
-                    </div>
-
-                    <div class="p-2 mb-3 border-bottom">
-                        <h6 class="font-weight-bold">Date of Birth</h6>
-                    </div>
-
-                    <div class="p-2 mb-3 border-bottom">
-                        <h6 class="font-weight-bold">Blood Group</h6>
-                    </div>
-
-                    <div class="p-2 mb-3 border-bottom">
-                        <h6 class="font-weight-bold">Vehicle Category</h6>
-                    </div>
+                    <% } %>
 
                 </div>
             </div>
